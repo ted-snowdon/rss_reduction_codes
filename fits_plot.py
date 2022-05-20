@@ -1,3 +1,7 @@
+# Plots slit image from fits file to help find trace y position
+# example syntax: python fits_plot.py 20200101 10
+# this will show mbxgpP2020010110.fits
+
 import matplotlib.pyplot as plt
 import os
 import sys
@@ -7,11 +11,8 @@ from astropy.io import fits
 
 plt.style.use(astropy_mpl_style)
 
-#example syntax: python fits_plot.py 20200101 10
-# this will show mbxgpP2020010110.fits
-
 date = sys.argv[1]
-file = sys.argv[2]
+file = (sys.argv[2]).zfill(4)
 
 folder = '/home/tedsnowdon/salt.data/'+date+'/product/'
 filename = 'mbxgpP'+date+file+'.fits'
