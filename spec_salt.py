@@ -256,8 +256,8 @@ if run_pipeline is True:
 			#plt.title(k)
 			#plt.show()
 			# IF IT WOULD BE EASIER TO JUST FORCE y0, yf, DO IT HERE!
-			#y0_trace = 101
-			#yf_trace = 97
+			#y0_trace = 100
+			#yf_trace = 100
 			#reminder_flag = True
 		# ADDITION END
 		gr = image_header(k,grating_keyword)
@@ -300,7 +300,11 @@ if run_pipeline is True:
 				except ValueError:
 					print ('Fit unsuccessful for '+k+' in twodsky, cannot complete optimal extraction')
 					optimal_spec = None
-					
+				#TED ADDITION: My slightly lazy workaround for the 'index out of range' problem for some frames
+				except IndexError:
+					print ('Fit unsuccessful for '+k+' in twodsky, cannot complete optimal extraction')
+					optimal_spec = None
+				#ADDITION END
 				trace_output = ap_trace(
 					k,
 					y0_trace = y0_trace,
