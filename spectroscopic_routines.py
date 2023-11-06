@@ -1276,6 +1276,7 @@ def ap_extract(image, trace, object_keyword, gain_keyword, readnoise_keyword,
         itrace = int(trace[i])
         y = np.append(np.arange(itrace-apwidth-skysep-skywidth, itrace-apwidth-skysep),
                       np.arange(itrace+apwidth+skysep+1, itrace+apwidth+skysep+skywidth+1))
+        y = y.astype(int)
 
         z = image[y,i]
 
